@@ -1,0 +1,31 @@
+{
+  "name": "js-primea-message",
+  "version": "0.0.0",
+  "description": "implements messaging for primea",
+  "scripts": {
+    "coverage": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./tests/index.js",
+    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+    "lint": "standard",
+    "test": "node --harmony --expose-wasm ./tests/index.js",
+    "build:docs": "documentation build --github  -f md ./index.js > ./API.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primea/js-primea-message.git"
+  },
+  "bugs": {
+    "url": "https://github.com/primea/js-primea-message/issues"
+  },
+  "homepage": "https://github.com/primea/js-primea-message",
+  "keywords": [
+    "primea"
+  ],
+  "author": "mjbecze <mjbecze@gmail.com>",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "coveralls": "^2.11.16",
+    "istanbul": "^0.4.5",
+    "standard": "10.0.0-beta.0",
+    "tape": "^4.5.1"
+  }
+}
