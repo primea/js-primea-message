@@ -2,13 +2,13 @@
 
 # index
 
-[code/js-primea-message/index.js:4-125](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L4-L125 "Source code on GitHub")
+[index.js:4-125](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L4-L125 "Source code on GitHub")
 
 This implements Messages for Primea
 
 ## constructor
 
-[code/js-primea-message/index.js:11-30](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L11-L30 "Source code on GitHub")
+[index.js:11-30](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L11-L30 "Source code on GitHub")
 
 **Parameters**
 
@@ -19,7 +19,7 @@ This implements Messages for Primea
 
 ## to
 
-[code/js-primea-message/index.js:36-38](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L36-L38 "Source code on GitHub")
+[index.js:36-38](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L36-L38 "Source code on GitHub")
 
 to path for this message
 
@@ -27,7 +27,7 @@ Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ## data
 
-[code/js-primea-message/index.js:44-46](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L44-L46 "Source code on GitHub")
+[index.js:44-46](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L44-L46 "Source code on GitHub")
 
 the messages data
 
@@ -35,7 +35,7 @@ Returns **[Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 
 ## atomic
 
-[code/js-primea-message/index.js:52-54](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L52-L54 "Source code on GitHub")
+[index.js:52-54](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L52-L54 "Source code on GitHub")
 
 whether the message is atomic or not
 
@@ -43,7 +43,7 @@ Returns **[Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/R
 
 ## from
 
-[code/js-primea-message/index.js:64-66](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L64-L66 "Source code on GitHub")
+[index.js:64-66](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L64-L66 "Source code on GitHub")
 
 returns the `from` path of the message
 
@@ -51,7 +51,7 @@ Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ## hasResponded
 
-[code/js-primea-message/index.js:72-74](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L72-L74 "Source code on GitHub")
+[index.js:72-74](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L72-L74 "Source code on GitHub")
 
 return whether or not the message has reponded
 
@@ -59,7 +59,7 @@ Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## result
 
-[code/js-primea-message/index.js:81-83](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L81-L83 "Source code on GitHub")
+[index.js:81-83](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L81-L83 "Source code on GitHub")
 
 Returns a promise that resolves when the a receiving contract calls
 `respond`
@@ -68,7 +68,7 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## nextPort
 
-[code/js-primea-message/index.js:89-95](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L89-L95 "Source code on GitHub")
+[index.js:89-95](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L89-L95 "Source code on GitHub")
 
 Gets the next port in the to array
 
@@ -76,7 +76,7 @@ Returns **any**
 
 ## respond
 
-[code/js-primea-message/index.js:101-108](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L101-L108 "Source code on GitHub")
+[index.js:101-108](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L101-L108 "Source code on GitHub")
 
 generates a message response, a message cannot be sent after this
 
@@ -86,7 +86,7 @@ generates a message response, a message cannot be sent after this
 
 ## isCyclic
 
-[code/js-primea-message/index.js:115-117](https://github.com/wanderer/dot-files/blob/8413e54d0863198ee99d34ac5a1bca387af2e7a4/code/js-primea-message/index.js#L115-L117 "Source code on GitHub")
+[index.js:115-117](https://github.com/primea/js-primea-message/blob/a43857b5c56810c2644c4afc0d96decf8ef6d909/index.js#L115-L117 "Source code on GitHub")
 
 checks if a message is cylic or not given a kernel
 
