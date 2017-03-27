@@ -4,14 +4,14 @@
 module.exports = class Message {
   /**
    * @param {Object} opts
-   * @param {Uint8Array} opts.data
+   * @param {Array} opts.data
    * @param {Array} opts.to
    * @param {Boolean} opts.atomic
    */
   constructor (opts) {
     const defaults = {
       to: [],
-      data: new Uint8Array(),
+      data: [],
       caps: [],
       atomic: true
     }
