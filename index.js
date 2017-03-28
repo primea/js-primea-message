@@ -12,7 +12,6 @@ module.exports = class Message {
     const defaults = {
       to: [],
       data: [],
-      caps: [],
       atomic: true
     }
     this.parameters = {}
@@ -51,10 +50,6 @@ module.exports = class Message {
    */
   get atomic () {
     return this.parameters.atomic
-  }
-
-  get caps () {
-    return this.parameters.caps
   }
 
   /**
