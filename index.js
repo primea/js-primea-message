@@ -85,7 +85,7 @@ module.exports = class Message {
     if (this.hasResponded) {
       throw new Error('message has already reponsed and cannot be sent again')
     } else {
-      return this.to[this._hops]
+      return this.to.split('/')[this._hops]
     }
   }
 

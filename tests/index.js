@@ -3,7 +3,7 @@ const Message = require('../index.js')
 
 tape('message API tests', async t => {
   const params = {
-    to: [0, 2, 1, 2],
+    to: '0/2/1/2',
     data: ['test'],
     atomic: true
   }
@@ -16,7 +16,7 @@ tape('message API tests', async t => {
   t.deepEquals(message.from, [], 'from getter should work')
 
   const toPort = message.nextPort()
-  t.equals(toPort, 0, 'should have correct to port')
+  t.equals(toPort, '0', 'should have correct to port')
 
   const fakeKernelA = Symbol('a')
   const fakeKernelB = Symbol('b')
