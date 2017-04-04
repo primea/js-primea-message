@@ -10,7 +10,7 @@ module.exports = class Message {
    */
   constructor (opts) {
     const defaults = {
-      to: [],
+      to: '',
       data: [],
       atomic: true
     }
@@ -26,6 +26,11 @@ module.exports = class Message {
     this._resultPromise = new Promise((resolve, reject) => {
       this._resolve = resolve
     })
+
+    this._committedPromise = new Promise((resolve, reject) => {
+      this._commit = resolve
+      this._reject = reject
+    })
   }
 
   /**
@@ -34,6 +39,10 @@ module.exports = class Message {
    */
   get to () {
     return this.parameters.to
+  }
+
+  get toLength () {
+    return this.parameters.to.split('/').length
   }
 
   /**
@@ -60,12 +69,26 @@ module.exports = class Message {
     return this._from
   }
 
+  get hops () {
+    return this._hops
+  }
+
   /**
    * return whether or not the message has reponded
    * @returns {Boolean}
    */
   get hasResponded () {
     return this._hasResponded
+  }
+
+  committed () {
+    return this._committedPromise
+  }
+
+  reject (e) {
+    this._hasResponded = true
+    this._reject(e)
+    this._resolve(e)
   }
 
   /**
@@ -99,6 +122,9 @@ module.exports = class Message {
     } else {
       this._hasResponded = true
       this._resolve(response)
+      if (!this._rootMessage) {
+        this._commit()
+      }
     }
   }
 
@@ -114,6 +140,8 @@ module.exports = class Message {
   _visited (kernel, currentMessage) {
     if (currentMessage && this !== currentMessage) {
       this._visitedKernels = currentMessage._visitedKernels
+      this._rootMessage = currentMessage
+      this._committedPromise = this._rootMessage._committedPromise
     }
     this._visitedKernels.push(kernel)
   }
