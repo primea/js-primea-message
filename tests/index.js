@@ -1,22 +1,18 @@
 const tape = require('tape')
-const Message = require('../index.js')
+const Message = require('../atomic.js')
 
 tape('message API tests', async t => {
   const params = {
     to: '0/2/1/2',
-    data: ['test'],
-    atomic: true
+    data: ['test']
   }
-  const message = new Message(params)
+  let message = new Message(params)
 
-  t.equals(message.to, params.to, 'to getter should work')
-  t.equals(message.data, params.data, 'data getter should work')
-  t.equals(message.caps, params.caps, 'caps getter should work')
-  t.equals(message.atomic, params.atomic, 'atomic getter should work')
-  t.deepEquals(message.from, [], 'from getter should work')
-
-  const toPort = message.nextPort()
-  t.equals(toPort, '0', 'should have correct to port')
+  t.equals(message.payload.to, params.to, 'to getter should work')
+  t.equals(message.payload.data, params.data, 'data getter should work')
+  t.equals(message.atomic, true, 'atomic getter should work')
+  t.equals(message.hops, 0, 'hops should return correctly')
+  t.deepEquals(message.from, '', 'from getter should work')
 
   const fakeKernelA = Symbol('a')
   const fakeKernelB = Symbol('b')
@@ -43,17 +39,19 @@ tape('message API tests', async t => {
     }
 
     t.true(didTrap, 'should trap if message responds more then once')
-
-    didTrap = false
-    try {
-      message.nextPort()
-    } catch (e) {
-      didTrap = true
-    }
-
-    t.true(didTrap, 'message shouldnot be allowed to be sent after it has responed')
-    t.end()
   })
 
   message.respond('test')
+  await message._committed()
+
+  t.true(message.hasResponded, 'message should have responded')
+
+  const messageC = new Message()
+  messageC._visited(fakeKernelA, messageA)
+  messageC._committed().catch((err) => {
+    t.equals(err, 'test2', 'should have correct err message')
+    t.end()
+  })
+  messageC.respond()
+  messageA._reject('test2')
 })
