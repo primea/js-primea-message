@@ -5,7 +5,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)  
 
-This implements messaging for Primae
+This implements messaging for Primea
 
 # USAGE
 ```javascript
