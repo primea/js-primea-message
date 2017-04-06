@@ -10,10 +10,9 @@ This implements messaging for Primae
 # USAGE
 ```javascript
 const Message = require('js-primea-message')
-const message = new Message({
-  to: ['some', 'path'],
-  data: new ArrayBuffer()
-})
+
+const gas = 44
+const message = new Message(new ArrayBuffer(), gas)
 
 ```
 
