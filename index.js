@@ -1,12 +1,11 @@
 /**
  * This implements Messages for Primea
+ * @module primea-message
  */
 module.exports = class Message {
   /**
-   * @param {Object} opts
-   * @param {Array} opts.data
-   * @param {Array} opts.to
-   * @param {Boolean} opts.atomic
+   * @param {ArrayBuffer} payload what you want to send in a message
+   * @param {Object} resources resources allocated to this message
    */
   constructor (payload, resources) {
     this._payload = payload

@@ -1,7 +1,8 @@
 const Message = require('./index.js')
 
 /**
- * This implements Messages for Primea
+ * This implements Atomic Messages for Primea
+ * @module primea-message/atomic
  */
 module.exports = class AtomicMessage extends Message {
   /**

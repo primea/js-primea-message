@@ -7,7 +7,7 @@
     "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
     "lint": "standard",
     "test": "node --harmony --expose-wasm ./tests/index.js",
-    "build:docs": "documentation build --github  -f md ./index.js > ./API.md"
+    "build:docs": "documentation build --github  -f md ./atomic.js > ./API.md"
   },
   "repository": {
     "type": "git",
