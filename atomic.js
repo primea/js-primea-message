@@ -5,12 +5,6 @@ const Message = require('./index.js')
  * @module primea-message/atomic
  */
 module.exports = class AtomicMessage extends Message {
-  /**
-   * @param {Object} opts
-   * @param {Array} opts.data
-   * @param {Array} opts.to
-   * @param {Boolean} opts.atomic
-   */
   constructor (payload) {
     super(payload)
     this._visitedKernels = []
