@@ -5,7 +5,6 @@
 module.exports = class Message {
   /**
    * @param {*} payload what you want to send in a message
-   * @param {*} resources resources allocated to this message
    */
   constructor (payload = {}) {
     this._payload = payload
