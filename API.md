@@ -4,18 +4,19 @@
 
 -   [primea-message/atomic](#primea-messageatomic)
 -   [primea-message](#primea-message)
--   [constructor](#constructor)
--   [atomic](#atomic)
 -   [result](#result)
 -   [respond](#respond)
 -   [hasResponded](#hasresponded)
 -   [isCyclic](#iscyclic)
--   [constructor](#constructor-1)
--   [from](#from)
+-   [isAtomic](#isatomic)
+-   [constructor](#constructor)
+-   [payload](#payload)
+-   [resources](#resources)
+-   [hops](#hops)
 
 ## primea-message/atomic
 
-[atomic.js:7-96](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L7-L96 "Source code on GitHub")
+[atomic.js:7-90](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L7-L90 "Source code on GitHub")
 
 **Extends Message**
 
@@ -23,34 +24,13 @@ This implements Atomic Messages for Primea
 
 ## primea-message
 
-[index.js:5-32](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/index.js#L5-L32 "Source code on GitHub")
+[index.js:5-38](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/index.js#L5-L38 "Source code on GitHub")
 
 This implements Messages for Primea
 
-## constructor
-
-[atomic.js:14-26](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L14-L26 "Source code on GitHub")
-
-**Parameters**
-
--   `opts` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `opts.data` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
-    -   `opts.to` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
-    -   `opts.atomic` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
--   `payload`  
--   `resources`  
-
-## atomic
-
-[atomic.js:32-34](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L32-L34 "Source code on GitHub")
-
-whether the message is atomic or not
-
-Returns **[Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)** 
-
 ## result
 
-[atomic.js:41-43](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L41-L43 "Source code on GitHub")
+[atomic.js:27-29](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L27-L29 "Source code on GitHub")
 
 Returns a promise that resolves when the a receiving contract calls
 `respond`
@@ -59,7 +39,7 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## respond
 
-[atomic.js:49-59](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L49-L59 "Source code on GitHub")
+[atomic.js:35-45](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L35-L45 "Source code on GitHub")
 
 generates a message response, a message cannot be sent after this
 
@@ -69,7 +49,7 @@ generates a message response, a message cannot be sent after this
 
 ## hasResponded
 
-[atomic.js:65-67](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L65-L67 "Source code on GitHub")
+[atomic.js:51-53](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L51-L53 "Source code on GitHub")
 
 return whether or not the message has reponded
 
@@ -77,7 +57,7 @@ Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ## isCyclic
 
-[atomic.js:74-76](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/atomic.js#L74-L76 "Source code on GitHub")
+[atomic.js:60-62](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L60-L62 "Source code on GitHub")
 
 checks if a message is cylic or not given a kernel
 
@@ -87,19 +67,47 @@ checks if a message is cylic or not given a kernel
 
 Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## constructor
+## isAtomic
 
-[index.js:10-15](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/index.js#L10-L15 "Source code on GitHub")
+[atomic.js:87-89](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/atomic.js#L87-L89 "Source code on GitHub")
+
+whether the message is atomic or not
 
 **Parameters**
 
--   `payload` **[ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)** what you want to send in a message
--   `resources` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** resources allocated to this message
+-   `obj`  
 
-## from
+Returns **Bloon** 
 
-[index.js:29-31](https://github.com/primea/js-primea-message/blob/d98dc9d13409faeabb5bdb9e8aba4504604694f3/index.js#L29-L31 "Source code on GitHub")
+## constructor
 
-returns the `from` path of the message
+[index.js:10-13](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/index.js#L10-L13 "Source code on GitHub")
 
-Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** 
+**Parameters**
+
+-   `payload` **any?= re** what you want to send in a message
+-   `resources` **any** resources allocated to this message
+
+## payload
+
+[index.js:19-21](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/index.js#L19-L21 "Source code on GitHub")
+
+Returns the messages payload
+
+Returns **any** 
+
+## resources
+
+[index.js:27-29](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/index.js#L27-L29 "Source code on GitHub")
+
+Returns the message's resources
+
+Returns **any** 
+
+## hops
+
+[index.js:35-37](https://github.com/primea/js-primea-message/blob/8d82db7c559f2ea14f2e3b067dc36eeb5ae82665/index.js#L35-L37 "Source code on GitHub")
+
+returns the number of hops a packet has undergone
+
+Returns **integer** 
