@@ -4,15 +4,16 @@ const Message = require('../atomic.js')
 tape('message API tests', async t => {
   const params = {
     to: '0/2/1/2',
-    data: ['test']
+    data: ['test'],
+    resources: 77
   }
   let message = new Message(params)
 
   t.equals(message.payload.to, params.to, 'to getter should work')
   t.equals(message.payload.data, params.data, 'data getter should work')
-  t.equals(message.atomic, true, 'atomic getter should work')
+  t.equals(message.resources, 77, 'resources getter should work')
   t.equals(message.hops, 0, 'hops should return correctly')
-  t.deepEquals(message.from, '', 'from getter should work')
+  t.equals(Message.isAtomic(message), true, 'message should be identified as atomic')
 
   const fakeKernelA = Symbol('a')
   const fakeKernelB = Symbol('b')

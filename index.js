@@ -7,26 +7,32 @@ module.exports = class Message {
    * @param {ArrayBuffer} payload what you want to send in a message
    * @param {Object} resources resources allocated to this message
    */
-  constructor (payload, resources) {
+  constructor (payload = {}) {
     this._payload = payload
-    this._resources = resources
-    this._from = ''
     this._hops = 0
   }
 
+  /**
+   * Returns the messages payload
+   * @returns {*}
+   */
   get payload () {
     return this._payload
   }
 
-  get hops () {
-    return this._hops
+  /**
+   * Returns the message's resources
+   * @returns {*}
+   */
+  get resources () {
+    return this._payload.resources
   }
 
   /**
-   * returns the `from` path of the message
-   * @returns {Array}
+   * returns the number of hops a packet has undergone
+   * @returns {integer}
    */
-  get from () {
-    return this._from
+  get hops () {
+    return this._hops
   }
 }

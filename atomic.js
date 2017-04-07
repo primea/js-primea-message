@@ -11,7 +11,7 @@ module.exports = class AtomicMessage extends Message {
    * @param {Array} opts.to
    * @param {Boolean} opts.atomic
    */
-  constructor (payload, resources) {
+  constructor (payload) {
     super(payload)
     this._visitedKernels = []
     this._hasResponded = false
@@ -23,14 +23,6 @@ module.exports = class AtomicMessage extends Message {
       this._committedResolve = resolve
       this._committedReject = reject
     })
-  }
-
-  /**
-   * whether the message is atomic or not
-   * @returns {Uint8Array}
-   */
-  get atomic () {
-    return true
   }
 
   /**
@@ -72,7 +64,7 @@ module.exports = class AtomicMessage extends Message {
    * @return {Boolean}
    */
   isCyclic (kernel) {
-    return this.atomic && this._visitedKernels.some(process => process === kernel)
+    return this._visitedKernels.some(process => process === kernel)
   }
 
   _committed () {
@@ -92,5 +84,13 @@ module.exports = class AtomicMessage extends Message {
       this._committedPromise = this._rootMessage._committedPromise
     }
     this._visitedKernels.push(kernel)
+  }
+
+  /**
+   * whether the message is atomic or not
+   * @returns {Bloon}
+   */
+  static isAtomic (obj) {
+    return obj instanceof AtomicMessage
   }
 }
