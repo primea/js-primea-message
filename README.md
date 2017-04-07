@@ -10,9 +10,7 @@ This implements messaging for Primea
 # USAGE
 ```javascript
 const Message = require('js-primea-message')
-
-const gas = 44
-const message = new Message(new ArrayBuffer(), gas)
+const message = new Message(new ArrayBuffer())
 
 ```
 
