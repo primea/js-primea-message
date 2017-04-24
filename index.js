@@ -8,7 +8,9 @@ module.exports = class Message {
    */
   constructor (payload = {}) {
     this._payload = payload
+    this._ticks = 0
     this._hops = 0
+    this._fromPort = null
   }
 
   /**
@@ -17,6 +19,10 @@ module.exports = class Message {
    */
   get payload () {
     return this._payload
+  }
+
+  get fromPort () {
+    return this._fromPort
   }
 
   /**

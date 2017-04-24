@@ -8,7 +8,9 @@ tape('message API tests', async t => {
     resources: 77
   }
   let message = new Message(params)
+  message._fromPort = 'test'
 
+  t.equals(message.fromPort, 'test', 'to getter should work')
   t.equals(message.payload.to, params.to, 'to getter should work')
   t.equals(message.payload.data, params.data, 'data getter should work')
   t.equals(message.resources, 77, 'resources getter should work')
