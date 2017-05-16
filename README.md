@@ -10,7 +10,16 @@ This implements messaging for Primea
 # USAGE
 ```javascript
 const Message = require('primea-message')
-const message = new Message(new ArrayBuffer())
+const params = {
+  data: 'test',
+  ports: [aPort],
+  resources: {
+    ticks: 77,
+    priority: 100
+  }
+}
+
+const message = new Message(params)
 
 ```
 
