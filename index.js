@@ -8,23 +8,21 @@ module.exports = class Message {
    */
   constructor (opts = {}) {
     const defaults = {
-      resources: {
-        ticks: 0,
-        priority: 0
-      },
+      ticks: 0,
       data: new ArrayBuffer([]),
       ports: []
     }
 
-    Object.assign(defaults.resources, opts.resources)
     this._opts = Object.assign(defaults, opts)
 
     // set by the kernel
-    this._ticks = 0
-    this._priority = 0
     this._hops = 0
     this._fromPort = null
-    this._fromPortsTicks = 0
+    this._totalRunTicks = 0
+  }
+
+  toJSON () {
+    return this._opts
   }
 
   /**
@@ -48,15 +46,7 @@ module.exports = class Message {
    * @returns {ArrayBuffer}
    */
   get ticks () {
-    return this._opts.resources.ticks
-  }
-
-  /**
-   * Returns an array of ports that a message is carrying
-   * @returns {[]}
-   */
-  get priority () {
-    return this._opts.resources.priority
+    return this._opts.ticks
   }
 
   /**
