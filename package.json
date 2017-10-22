@@ -3,8 +3,8 @@
   "version": "0.0.2",
   "description": "implements messaging for primea",
   "scripts": {
-    "coverage": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./tests/index.js",
-    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc npm test",
     "lint": "standard",
     "test": "node --harmony --expose-wasm ./tests/index.js",
     "build:docs": "documentation build --github  -f md ./atomic.js > ./API.md"
@@ -25,7 +25,7 @@
   "devDependencies": {
     "coveralls": "^2.11.16",
     "documentation": "^5.0.0",
-    "istanbul": "^0.4.5",
+    "nyc": "^11.2.1",
     "standard": "10.0.3",
     "tape": "^4.5.1"
   }
