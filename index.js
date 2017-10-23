@@ -18,7 +18,7 @@ module.exports = class Message {
     // set by the kernel
     this._hops = 0
     this._fromPort = null
-    this._totalRunTicks = 0
+    this._fromTicks = 0
   }
 
   toJSON () {
