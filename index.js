@@ -4,7 +4,9 @@
  */
 module.exports = class Message {
   /**
-   * @param {*} payload what you want to send in a message
+   * @param {Object} opts
+   * @param {ArrayBuffer} opts.data - the payload of the message
+   * @param {Array<Object>} opts.ports - an array of ports to send in the message
    */
   constructor (opts = {}) {
     const defaults = {
