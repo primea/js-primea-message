@@ -9,17 +9,11 @@ module.exports = class Message {
    * @param {Array<Object>} opts.ports - an array of ports to send in the message
    */
   constructor (opts = {}) {
-    const defaults = {
-      ticks: 0,
-      data: new ArrayBuffer([]),
-      caps: []
-    }
-
+    const defaults = this.constructor.defaults
     this._opts = Object.assign(defaults, opts)
 
     // set by the kernel
     this._hops = 0
-    this._fromPort = null
     this._fromTicks = 0
   }
 
@@ -65,5 +59,13 @@ module.exports = class Message {
    */
   get hops () {
     return this._hops
+  }
+
+  static get defaults () {
+    return {
+      ticks: 0,
+      data: new ArrayBuffer([]),
+      caps: []
+    }
   }
 }
