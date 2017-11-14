@@ -12,7 +12,7 @@ module.exports = class Message {
     const defaults = {
       ticks: 0,
       data: new ArrayBuffer([]),
-      ports: []
+      caps: []
     }
 
     this._opts = Object.assign(defaults, opts)
@@ -39,8 +39,8 @@ module.exports = class Message {
    * Returns an array of ports that a message is carrying
    * @returns {[]}
    */
-  get ports () {
-    return this._opts.ports
+  get caps () {
+    return this._opts.caps
   }
 
   /**
@@ -55,8 +55,8 @@ module.exports = class Message {
    * Returns the port from which the message arrived
    * @returns {*}
    */
-  get fromPort () {
-    return this._fromPort
+  get from () {
+    return this._from
   }
 
   /**
