@@ -6,7 +6,7 @@ module.exports = class Message {
   /**
    * @param {Object} opts
    * @param {ArrayBuffer} opts.data - the payload of the message
-   * @param {Array<Object>} opts.ports - an array of ports to send in the message
+   * @param {Array<Object>} opts.caps - an array of capabilities to send in the message
    */
   constructor (opts = {}) {
     const defaults = this.constructor.defaults
@@ -30,7 +30,7 @@ module.exports = class Message {
   }
 
   /**
-   * Returns an array of ports that a message is carrying
+   * Returns an array of capabilities that a message is carrying
    * @returns {[]}
    */
   get caps () {
