@@ -46,14 +46,6 @@ module.exports = class Message {
   }
 
   /**
-   * Returns the port from which the message arrived
-   * @returns {*}
-   */
-  get from () {
-    return this._from
-  }
-
-  /**
    * returns the number of hops a packet has undergone
    * @returns {integer}
    */

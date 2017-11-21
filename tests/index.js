@@ -12,9 +12,7 @@ tape('message API tests', async t => {
   }
 
   let message = new Message(params)
-  message._from = 'test'
 
-  t.equals(message.from, 'test', 'to getter should work')
   t.equals(message.caps[0], capA, 'to getter should work')
   t.equals(message.data.toString(), 'test', 'to getter should work')
   t.equals(message.ticks, 77, 'resources getter should work')
