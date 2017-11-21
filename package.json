@@ -1,6 +1,6 @@
 {
   "name": "primea-message",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "implements messaging for primea",
   "scripts": {
     "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
