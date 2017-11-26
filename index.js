@@ -1,14 +1,17 @@
+const EventEmitter = require('events')
+
 /**
  * This implements Messages for Primea
  * @module primea-message
  */
-module.exports = class Message {
+module.exports = class Message extends EventEmitter {
   /**
    * @param {Object} opts
    * @param {ArrayBuffer} opts.data - the payload of the message
    * @param {Array<Object>} opts.caps - an array of capabilities to send in the message
    */
   constructor (opts = {}) {
+    super()
     const defaults = this.constructor.defaults
     this._opts = Object.assign(defaults, opts)
 

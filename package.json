@@ -28,5 +28,8 @@
     "nyc": "^11.3.0",
     "standard": "10.0.3",
     "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "events": "^1.1.1"
   }
 }
