@@ -14,46 +14,23 @@ module.exports = class Message extends EventEmitter {
     super()
     const defaults = this.constructor.defaults
     this._opts = Object.assign(defaults, opts)
+    Object.keys(this._opts).forEach(key => {
+      Object.defineProperty(this, key, {
+        get: function () {
+          return this._opts[key]
+        },
+        set: function (y) {
+          this._opts[key] = y
+        }
+      })
+    })
 
     // set by the kernel
-    this._hops = 0
     this._fromTicks = 0
   }
 
   toJSON () {
     return this._opts
-  }
-
-  /**
-   * Returns the messages payload
-   * @returns {ArrayBuffer}
-   */
-  get data () {
-    return this._opts.data
-  }
-
-  /**
-   * Returns an array of capabilities that a message is carrying
-   * @returns {[]}
-   */
-  get caps () {
-    return this._opts.caps
-  }
-
-  /**
-   * Returns the messages payload
-   * @returns {ArrayBuffer}
-   */
-  get ticks () {
-    return this._opts.ticks
-  }
-
-  /**
-   * returns the number of hops a packet has undergone
-   * @returns {integer}
-   */
-  get hops () {
-    return this._hops
   }
 
   static get defaults () {

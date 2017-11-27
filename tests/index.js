@@ -16,10 +16,11 @@ tape('message API tests', async t => {
   t.equals(message.caps[0], capA, 'to getter should work')
   t.equals(message.data.toString(), 'test', 'to getter should work')
   t.equals(message.ticks, 77, 'resources getter should work')
-  t.equals(message.hops, 0, 'hops should return correctly')
   t.equals(JSON.stringify(message), json)
 
   message = new Message()
   t.equals(message.ticks, 0, 'resources getter should work')
+  message.ticks = 99
+  t.equals(message.ticks, 99, 'setter should work')
   t.end()
 })
