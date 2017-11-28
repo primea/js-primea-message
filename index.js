@@ -36,7 +36,7 @@ module.exports = class Message extends EventEmitter {
   static get defaults () {
     return {
       ticks: 0,
-      data: new ArrayBuffer([]),
+      data: new Uint8Array([]),
       caps: []
     }
   }
