@@ -30,6 +30,7 @@
     "tape": "^4.5.1"
   },
   "dependencies": {
-    "events": "^1.1.1"
+    "events": "^1.1.1",
+    "node-webcrypto-shim": "0.0.0"
   }
 }

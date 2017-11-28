@@ -1,4 +1,5 @@
 const EventEmitter = require('events')
+const crypto = require('node-webcrypto-shim')
 
 /**
  * This implements Messages for Primea
@@ -31,6 +32,20 @@ module.exports = class Message extends EventEmitter {
 
   toJSON () {
     return this._opts
+  }
+
+  /**
+   * Gets the SHA-256 hash for some given data
+   * @param {Buffer} data - the data to be hashed
+   * @param {number} length - the number of bytes of the hash to return. must be <= 32
+   * @returns {Promise} resolves with 32 bytes of hashed data
+   */
+  static hash (data, length = 32) {
+    return crypto.subtle.digest({
+      name: 'SHA-256'
+    }, data).then(function (hash) {
+      return new Uint8Array(hash).subarray(0, length)
+    })
   }
 
   static get defaults () {
