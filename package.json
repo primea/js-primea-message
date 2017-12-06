@@ -7,7 +7,7 @@
     "coverage": "nyc npm test",
     "lint": "standard",
     "test": "node --harmony --expose-wasm ./tests/index.js",
-    "build:docs": "documentation build --github  -f md ./atomic.js > ./API.md"
+    "build:docs": "documentation build --github  -f md ./index.js > ./API.md"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,10 @@
     "tape": "^4.5.1"
   },
   "dependencies": {
+    "buffer-pipe": "0.0.1",
     "events": "^1.1.1",
-    "node-webcrypto-shim": "0.0.0"
+    "leb128": "0.0.4",
+    "node-webcrypto-shim": "0.0.0",
+    "primea-capability": "0.0.1"
   }
 }

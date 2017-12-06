@@ -1,9 +1,9 @@
 const tape = require('tape')
+const Cap = require('primea-capability')
 const Message = require('../')
 
 tape('message API tests', async t => {
-  const capA = {}
-  const json = '{"ticks":77,"data":{"type":"Buffer","data":[116,101,115,116]},"caps":[{}]}'
+  const capA = new Cap(Buffer.alloc(20))
 
   const params = {
     data: Buffer.from('test'),
@@ -16,7 +16,10 @@ tape('message API tests', async t => {
   t.equals(message.caps[0], capA, 'to getter should work')
   t.equals(message.data.toString(), 'test', 'to getter should work')
   t.equals(message.ticks, 77, 'resources getter should work')
-  t.equals(JSON.stringify(message), json)
+
+  const raw = message.serialize()
+  const msg = Message.deserialize(raw)
+  t.equals(msg.ticks, 77, 'serialization should work')
 
   message = new Message()
   t.equals(message.ticks, 0, 'resources getter should work')

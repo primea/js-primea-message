@@ -13,7 +13,7 @@ This implements messaging for Primea
 const Message = require('primea-message')
 const params = {
   data: 'test',
-  caps: [{}],
+  caps: [],
   resources: {
     ticks: 77,
     priority: 100

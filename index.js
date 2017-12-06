@@ -1,5 +1,8 @@
 const EventEmitter = require('events')
+const Capability = require('primea-capability')
 const crypto = require('node-webcrypto-shim')
+const leb128 = require('leb128').unsigned
+const Pipe = require('buffer-pipe')
 
 /**
  * This implements Messages for Primea
@@ -30,10 +33,40 @@ module.exports = class Message extends EventEmitter {
     this._fromTicks = 0
   }
 
-  toJSON () {
-    return this._opts
+  /**
+   * serializes the message
+   * @return {Buffer}
+   */
+  serialize () {
+    const args = [
+      leb128.encode(this.ticks),
+      leb128.encode(this.data.length),
+      this.data,
+      Buffer.concat(this.caps.map(c => c.serialize()))
+    ]
+    return Buffer.concat(args)
   }
 
+  /**
+   * deserializes the message and returns a new instance of `Message`
+   * @param {Buffer} raw - the serialized raw message
+   * @return {Promise} resolve with a new instance of `Message`
+   */
+  static deserialize (raw) {
+    const p = new Pipe(raw)
+
+    const json = {
+      ticks: leb128.readBn(p).toNumber(),
+      data: p.read(leb128.read(p))
+    }
+
+    json.caps = []
+    while (!p.end) {
+      const cap = Capability.deserializeFromPipe(p)
+      json.caps.push(cap)
+    }
+    return new Message(json)
+  }
   /**
    * Gets the SHA-256 hash for some given data
    * @param {Buffer} data - the data to be hashed
