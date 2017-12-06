@@ -9,13 +9,13 @@
 
 ## primea-message
 
-[index.js:11-91](https://github.com/primea/js-primea-message/blob/c155407839143b390bffaf120e9a52e9ac3be68d/index.js#L11-L91 "Source code on GitHub")
+[index.js:11-91](https://github.com/primea/js-primea-message/blob/b3753c13deda67a87331fe6a96b578b46f9f9ba5/index.js#L11-L91 "Source code on GitHub")
 
 This implements Messages for Primea
 
 ### serialize
 
-[index.js:40-48](https://github.com/primea/js-primea-message/blob/c155407839143b390bffaf120e9a52e9ac3be68d/index.js#L40-L48 "Source code on GitHub")
+[index.js:40-48](https://github.com/primea/js-primea-message/blob/b3753c13deda67a87331fe6a96b578b46f9f9ba5/index.js#L40-L48 "Source code on GitHub")
 
 serializes the message
 
@@ -23,7 +23,7 @@ Returns **[Buffer](https://nodejs.org/api/buffer.html)**
 
 ### deserialize
 
-[index.js:55-69](https://github.com/primea/js-primea-message/blob/c155407839143b390bffaf120e9a52e9ac3be68d/index.js#L55-L69 "Source code on GitHub")
+[index.js:55-69](https://github.com/primea/js-primea-message/blob/b3753c13deda67a87331fe6a96b578b46f9f9ba5/index.js#L55-L69 "Source code on GitHub")
 
 deserializes the message and returns a new instance of `Message`
 
@@ -35,7 +35,7 @@ Returns **[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### hash
 
-[index.js:76-82](https://github.com/primea/js-primea-message/blob/c155407839143b390bffaf120e9a52e9ac3be68d/index.js#L76-L82 "Source code on GitHub")
+[index.js:76-82](https://github.com/primea/js-primea-message/blob/b3753c13deda67a87331fe6a96b578b46f9f9ba5/index.js#L76-L82 "Source code on GitHub")
 
 Gets the SHA-256 hash for some given data
 
