@@ -28,9 +28,6 @@ module.exports = class Message extends EventEmitter {
         }
       })
     })
-
-    // set by the kernel
-    this._fromTicks = 0
   }
 
   /**
@@ -85,7 +82,9 @@ module.exports = class Message extends EventEmitter {
     return {
       ticks: 0,
       data: new Uint8Array([]),
-      caps: []
+      caps: [],
+      _fromId: Buffer.alloc(20),
+      _fromTicks: 0
     }
   }
 }
