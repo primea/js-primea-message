@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "buffer-pipe": "0.0.2",
-    "events": "^1.1.1",
+    "events": "^2.0.0",
     "leb128": "0.0.4",
     "node-webcrypto-shim": "0.0.0",
     "primea-capability": "0.0.1"
