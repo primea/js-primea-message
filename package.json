@@ -24,7 +24,7 @@
   "license": "MPL-2.0",
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "documentation": "^5.0.0",
+    "documentation": "^6.0.0",
     "nyc": "^11.3.0",
     "standard": "10.0.3",
     "tape": "^4.5.1"
